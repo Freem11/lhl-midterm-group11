@@ -59,14 +59,6 @@ $(() => {
         data: {mapId},
       }).then(function(data) {
 
-        $.ajax({
-          url: "/",
-          method: "GET",
-        }).then(function(data) {
-
-          window.location.replace(`http://localhost:8080${window.location.pathname}`);
-        });
-
       });
 
 
@@ -99,7 +91,7 @@ $(() => {
           let marker = event.target;
           marker.openPopup();
         });
-      window.markers[pinData.id] = mark._leaflet_id;
+
     }
   };
 
