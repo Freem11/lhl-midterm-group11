@@ -94,6 +94,13 @@ $(() => {
           marker.setLatLng(new L.LatLng(position.lat, position.lng),{draggable:'true'});
           map.panTo(new L.LatLng(position.lat, position.lng));
           // updateOnDragMarker(position.lat, position.lng);
+<<<<<<< HEAD
+=======
+        })
+        .on('click', function(event) {
+          let marker = event.target;
+          marker.openPopup();
+>>>>>>> walkthrough
         });
 
     }
