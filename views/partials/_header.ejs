@@ -40,7 +40,7 @@
   <% } %> <% if (user) { %>
   <form class="form-inline" action="/logout" method="POST">
     <a href="/user/profile">
-      <h5 class="navbar-brand nav-link"><%= user %>!</h5>
+      <h5 class="navbar-brand nav-link"><%= user %></h5>
     </a>
 
     <div class="form-group mb-2">
@@ -59,7 +59,7 @@
         <button type="submit" class="btn btn-primary">Register</button>
       </div>
     </form>
-    <form class="form-inline mb-2" action="/login/2" method="GET">
+    <form class="form-inline mb-2" action="/login/1" method="GET">
       <div class="form-group">
         <button type="submit" class="btn btn-primary">Login</button>
       </div>

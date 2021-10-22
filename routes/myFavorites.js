@@ -15,10 +15,6 @@ router.get("/", (req, res) => {
   db.getMyFavoriteMaps(user_id)
     .then(myFavoriteMaps => {
 
-<<<<<<< HEAD
-=======
-
->>>>>>> e91b319e3fd4bb352b61ac45c94990e4df21b6ff
       dc.getFavoritesByUser(user_id)
         .then(favorites => {
           const final = myFavoriteMaps.map((map) => {
