@@ -59,14 +59,6 @@ $(() => {
         data: {mapId},
       }).then(function(data) {
 
-        $.ajax({
-          url: "/",
-          method: "GET",
-        }).then(function(data) {
-
-          window.location.replace(`http://localhost:8080${window.location.pathname}`);
-        });
-
       });
 
 
