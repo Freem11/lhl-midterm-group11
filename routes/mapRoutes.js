@@ -61,6 +61,7 @@ router.post("/delete", (req, res) => {
 
 router.get("/:id", (req, res) => {
   const username = req.session.username;
+  const user_id = req.session.userId
   const map_id = req.params.id;
   db.getSingleMap(map_id)
     .then(currentMap => {
@@ -68,9 +69,10 @@ router.get("/:id", (req, res) => {
       dc.getPinsByMap(map_id)
         .then(pincollection => {
 
-          dd.isMapFavorited(map_id)
+          dd.isMapFavorited(map_id, user_id)
             .then(mapFav => {
               let mapVar = mapFav.length;
+
               res.render("map", { mapName: currentMap[0]['name'], user: username, pins: pincollection, mapVar });
             })
             .catch(err => {

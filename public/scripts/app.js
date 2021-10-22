@@ -59,13 +59,6 @@ $(() => {
         data: {mapId},
       }).then(function(data) {
 
-        $.ajax({
-          url: "/",
-          method: "GET",
-        }).then(function(data) {
-
-          window.location.replace(`http://localhost:8080${window.location.pathname}`);
-        });
 
       });
 
@@ -95,13 +88,7 @@ $(() => {
           map.panTo(new L.LatLng(position.lat, position.lng));
           // updateOnDragMarker(position.lat, position.lng);
         })
-        .on('click', function(event) {
-          let marker = event.target;
-          const markerId = marker._leaflet_id;
-          let position = marker.getLatLng();
-          marker.setLatLng(new L.LatLng(position.lat, position.lng),{draggable:'true'});
-          savePin(position.lat, position.lng, pinName, markerId);
-        });
+
       window.markers[pinData.id] = mark._leaflet_id;
     }
   };
