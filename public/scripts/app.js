@@ -94,6 +94,10 @@ $(() => {
           marker.setLatLng(new L.LatLng(position.lat, position.lng),{draggable:'true'});
           map.panTo(new L.LatLng(position.lat, position.lng));
           // updateOnDragMarker(position.lat, position.lng);
+        })
+        .on('click', function(event) {
+          let marker = event.target;
+          marker.openPopup();
         });
       window.markers[pinData.id] = mark._leaflet_id;
     }
