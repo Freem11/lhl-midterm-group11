@@ -39,9 +39,15 @@ router.post("/", (req, res) => {
 
 router.post("/delete", (req, res) => {
   const map_id = req.body.mapId;
+  const user_id = req.session.userId;
+
   const map = {
     map_id
   };
+
+  if (!user_id) {
+    return;
+  } else {
 
   db.deleteMapById(map)
     .then(data => {
@@ -54,6 +60,7 @@ router.post("/delete", (req, res) => {
         .status(500)
         .json({ error: err.message });
     });
+  }
 });
 
 
