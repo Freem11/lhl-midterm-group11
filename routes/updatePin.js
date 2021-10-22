@@ -12,15 +12,21 @@ router.post("/", (req, res) => {
     pin_id
   };
 
-  db.updatePinById(map)
-    .then(data => {
-      res.redirect(`/maps/${data[0].map_id}`);
-    })
-    .catch(err => {
-      res
-        .status(500)
-        .json({ error: err.message });
-    });
+  if (!user_id) {
+    return;
+  } else {
+    db.updatePinById(map)
+      .then(data => {
+        res.redirect(`/maps/${data[0].map_id}`);
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
+  }
+
+
 });
 
 module.exports = router;
